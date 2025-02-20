@@ -86,9 +86,13 @@ function loadSettings() {
         } else {
             // Default classes
             annotationClasses = {
-                '0': { name: 'Name', color: '#FF0000' },
-                '1': { name: 'Date of Birth', color: '#00FF00' },
-                '2': { name: 'ID Number', color: '#0000FF' }
+                '0': { name: 'date_no', color: '#FF0000' },
+                '1': { name: 'register_year_no_amount', color: '#00FF00' },
+                '2': { name: 'nontax_reference_amount', color: '#0000FF' },
+                '3': { name: 'total_nontax_fee', color: '#0000FF' },
+                '4': { name: 'payment_reference_amount', color: '#0000FF' },
+                '5': { name: 'grand_total', color: '#0000FF' }
+
             };
             saveSettings();
         }
