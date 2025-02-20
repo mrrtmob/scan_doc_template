@@ -1,25 +1,70 @@
-tax_invoice:
-  template_name: "Tax Invoice Template"
-  description: "Cambodian Standard Tax Invoice"
-  sections:
-    - name: "invoice_header"
-      coordinates: {x_start: 0.0, x_end: 1.0, y_start: 0.0, y_end: 0.15}
-    - name: "vendor_info"
-      coordinates: {x_start: 0.05, x_end: 0.45, y_start: 0.15, y_end: 0.3}
-    - name: "customer_info"
-      coordinates: {x_start: 0.63, x_end: 0.95, y_start: 0.15, y_end: 0.25}
-    - name: "items_table"
-      coordinates: {x_start: 0.05, x_end: 0.95,y_start: 0.3, y_end: 0.65}
-    - name: "payment_summary"
-      coordinates: {x_start: 0.6, x_end: 0.95, y_start: 0.65, y_end: 0.85}
+templates:
+    tax_invoice:
+        template_name: "Tax Invoice Template"
+        description: "Cambodian Standard Tax Invoice"
+        sections:
+            - name: "customer_info"
+              coordinates:
+                  x_start: 0.63
+                  x_end: 0.95
+                  y_start: 0.15
+                  y_end: 0.25
+            - name: "items_table"
+              coordinates:
+                  x_start: 0.05
+                  x_end: 0.32
+                  y_start: 0.41
+                  y_end: 0.46
+            - name: "items_table2"
+              coordinates:
+                  x_start: 0.7
+                  x_end: 0.95
+                  y_start: 0.38
+                  y_end: 0.46
+            - name: "total_amount_of_fee"
+              coordinates:
+                  x_start: 0.05
+                  x_end: 0.95
+                  y_start: 0.57
+                  y_end: 0.75
+            - name: "total_amount_none_tax_fee"
+              coordinates:
+                  x_start: 0.05
+                  x_end: 0.95
+                  y_start: 0.742
+                  y_end: 0.775
+            - name: "payment_summary"
+              coordinates:
+                  x_start: 0.05
+                  x_end: 0.95
+                  y_start: 0.775
+                  y_end: 0.83
+            - name: "total"
+              coordinates:
+                  x_start: 0.7
+                  x_end: 0.95
+                  y_start: 0.825
+                  y_end: 0.86
 
-gov_form_001:
-  template_name: "Government Form 001"
-  description: "Official Department Form Layout"
-  sections:
-    - name: "department_header"
-      coordinates: {x_start: 0.0, x_end: 1.0, y_start: 0.0, y_end: 0.2}
-    - name: "applicant_details"
-      coordinates: {x_start: 0.1, x_end: 0.9, y_start: 0.25, y_end: 0.4}
-    - name: "approval_stamp"
-      coordinates: {x_start: 0.7, x_end: 0.95, y_start: 0.85, y_end: 1.0}
+    gov_form_001:
+        template_name: "Government Form 001"
+        description: "Official Department Form Layout"
+        sections:
+            - name: "department_header"
+              coordinates:
+                  x_start: 0.0
+                  x_end: 1.0
+                  y_start: 0.0
+                  y_end: 0.2
+            - name: "applicant_details"
+              coordinates:
+                  x_start: 0.1
+                  x_end: 0.9
+                  y_start: 0.25
+                  y_end: 0.4
+            - name: "approval_stamp"
+              coordinates:
+                  x_start: 0.7
+                  x_end: 0.95
+                  y_start: 0.85
+                  y_end: 1.0

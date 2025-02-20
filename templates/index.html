@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image Annotation Tool</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <!-- Navigation Tabs -->
+    <div class="nav-tabs">
+        <button class="tab-button active" data-tab="annotation">Annotation</button>
+        <button class="tab-button" data-tab="dataset">Dataset Review</button>
+    </div>
+
+    <!-- Annotation Tab -->
+    <div id="annotation-tab" class="tab-content active">
+        <div class="container">
+            <div class="sidebar">
+                <h2>Annotation Tools</h2>
+                <div class="upload-section">
+                    <h3>Upload Image</h3>
+                    <input type="file" id="imageUpload" accept="image/*">
+                </div>
+
+                <div class="class-selector">
+                    <h3>Select Class</h3>
+                    <select id="classSelector"></select>
+                </div>
+
+                <div class="action-buttons">
+                    <button id="saveButton" class="primary-button">
+                        <span class="icon">💾</span> Save Annotations
+                    </button>
+                    <button id="clearButton" class="warning-button">
+                        <span class="icon">🗑️</span> Clear All
+                    </button>
+                    <button id="settingsButton" class="settings-button">
+                        <span class="icon">⚙️</span> Settings
+                    </button>
+                    <button id="helpButton" class="help-button">
+                        <span class="icon">❓</span> Help
+                    </button>
+                </div>
+            </div>
+
+            <div class="main-content">
+                <div class="canvas-container">
+                    <div class="canvas-wrapper">
+                        <canvas id="imageCanvas"></canvas>
+                        <div class="canvas-overlay" id="canvasOverlay">
+                            <div class="overlay-message">Upload an image to start annotation</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dataset Review Tab -->
+    <div id="dataset-tab" class="tab-content">
+        <div class="dataset-container">
+            <div class="dataset-controls">
+                <input type="text" id="searchInput" placeholder="Search images...">
+                <select id="filterClass">
+                    <option value="all">All Classes</option>
+                </select>
+                <div class="dataset-stats">
+                    <span id="totalImages">Total Images: 0</span>
+                    <span id="totalAnnotations">Total Annotations: 0</span>
+                </div>
+            </div>
+            <div class="dataset-grid" id="datasetGrid"></div>
+        </div>
+    </div>
+
+    <!-- Image Preview Modal -->
+    <div id="previewModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Image Preview</h3>
+                <span class="close">&times;</span>
+            </div>
+            <div class="canvas-container-modal">
+                <canvas id="previewCanvas"></canvas>
+                <div class="zoom-controls">
+                    <button id="zoomIn">+</button>
+                    <button id="zoomOut">-</button>
+                    <button id="resetZoom">Reset</button>
+                </div>
+            </div>
+            <div id="annotationInfo"></div>
+            <div class="modal-footer">
+                <button id="deleteImage" class="warning-button">Delete Image</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Settings Modal -->
+    <div id="settingsModal" class="modal">
+        <div class="modal-content settings-content">
+            <div class="modal-header">
+                <h2>Annotation Settings</h2>
+                <span class="close">&times;</span>
+            </div>
+            
+            <div class="settings-section">
+                <h3>Classes</h3>
+                <div class="class-list" id="classList"></div>
+                
+                <div class="add-class-form">
+                    <input type="text" id="newClassName" placeholder="Class name">
+                    <input type="color" id="newClassColor" value="#FF0000">
+                    <button id="addClassBtn" class="primary-button">Add Class</button>
+                </div>
+            </div>
+            
+            <div class="settings-actions">
+                <button id="saveSettings" class="primary-button">Save Settings</button>
+                <button id="resetSettings" class="warning-button">Reset to Default</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Help Modal -->
+    <div id="helpModal" class="modal">
+        <div class="modal-content help-content">
+            <div class="modal-header">
+                <h2>Help & Shortcuts</h2>
+                <span class="close">&times;</span>
+            </div>
+            <div class="help-content">
+                <h3>Keyboard Shortcuts</h3>
+                <div class="shortcuts-list">
+                    <div class="shortcut-item">
+                        <span class="key">Delete/Backspace</span>
+                        <span class="description">Remove last annotation</span>
+                    </div>
+                    <div class="shortcut-item">
+                        <span class="key">Esc</span>
+                        <span class="description">Close modal</span>
+                    </div>
+                    <div class="shortcut-item">
+                        <span class="key">+/-</span>
+                        <span class="description">Zoom in/out in preview</span>
+                    </div>
+                    <div class="shortcut-item">
+                        <span class="key">0</span>
+                        <span class="description">Reset zoom in preview</span>
+                    </div>
+                </div>
+
+                <h3>How to Use</h3>
+                <ol class="help-instructions">
+                    <li>Upload an image using the upload button</li>
+                    <li>Select a class from the dropdown menu</li>
+                    <li>Click and drag on the image to draw a box</li>
+                    <li>Use the save button to save your annotations</li>
+                    <li>View your dataset in the Dataset Review tab</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Indicator -->
+    <div id="loadingIndicator" class="loading-indicator">
+        <div class="spinner"></div>
+        <div class="loading-text">Loading...</div>
+    </div>
+
+    <!-- Notification -->
+    <div id="notification" class="notification">
+        <span id="notificationMessage"></span>
+        <span class="notification-close">&times;</span>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
