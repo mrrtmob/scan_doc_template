@@ -354,7 +354,29 @@ function showPreview(item) {
     // Setup delete button
     document.getElementById('deleteImage').onclick = () => {
         if (confirm('Are you sure you want to delete this image and its annotations?')) {
-            deleteImage(item.filename);
+            fetch('/delete_image', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    image_name: item.filename
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    showNotification('Image deleted successfully', 'success');
+                    document.getElementById('previewModal').style.display = 'none';
+                    loadDataset(); // Refresh the dataset view
+                } else {
+                    throw new Error(data.error || 'Error deleting image');
+                }
+            })
+            .catch(error => {
+                console.error('Delete error:', error);
+                showNotification('Error deleting image: ' + error.message, 'error');
+            });
         }
     };
 }
