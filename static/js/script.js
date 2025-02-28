@@ -90,14 +90,16 @@ function loadSettings() {
                 '1': { name: 'register_year', color: '#33FF57' },   // Green
                 '2': { name: 'register_no', color: '#3357FF' },     // Blue
                 '3': { name: 'register_amount', color: '#F1C40F' },  // Yellow
-                '4': { name: 't_nontax', color: '#8E44AD' },        // Purple
-                '5': { name: 't_reference', color: '#E67E22' },     // Orange
-                '6': { name: 't_amount', color: '#2ECC71' },        // Bright Green
-                '7': { name: 'total_nontax_fee', color: '#D35400' }, // Dark Orange
-                '8': { name: 'p_payment', color: '#2980B9' },       // Light Blue
-                '9': { name: 'p_reference', color: '#C0392B' },      // Dark Red
-                '10': { name: 'p_amount', color: '#27AE60' },       // Medium Green
-                '11': { name: 'grand_total', color: '#34495E' },    // Dark Gray
+                '4': { name: 'nt_name', color: '#8E44AD' },          // Purple
+                '5': { name: 'nt_description', color: '#E67E22' },   // Orange
+                '6': { name: 'nt_reference', color: '#2ECC71' },     // Bright Green
+                '7': { name: 'nt_amount', color: '#D35400' },        // Dark Orange
+                '8': { name: 'total_nontax_fee', color: '#2980B9' }, // Light Blue
+                '9': { name: 'p_no', color: '#C0392B' },              // Dark Red
+                '10': { name: 'p_method', color: '#27AE60' },        // Medium Green
+                '11': { name: 'p_reference', color: '#34495E' },     // Dark Gray
+                '12': { name: 'p_amount', color: '#F39C12' },        // Bright Orange
+                '13': { name: 'grand_total', color: '#16A085' },     // Teal
             };
             saveSettings();
         }
