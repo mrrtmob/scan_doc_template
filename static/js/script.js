@@ -85,7 +85,7 @@ function loadSettings() {
             annotationClasses = JSON.parse(savedSettings);
         } else {
             // Default classes
-            const annotationClasses = {
+            annotationClasses = {
                 '0': { name: 'date_no', color: '#FF5733' },          // Red
                 '1': { name: 'register_year', color: '#33FF57' },   // Green
                 '2': { name: 'register_no', color: '#3357FF' },     // Blue
